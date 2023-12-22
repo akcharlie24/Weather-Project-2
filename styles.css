@@ -1,0 +1,189 @@
+body{
+    background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.mybtn{
+    margin-right: 10rem;
+    margin-left: 10rem;
+}
+
+.welcome-info{
+    color: rgb(231, 219, 219);
+}
+
+.welcome-text {
+    margin-top: 1rem;
+    font-style: italic;
+    color: rgb(231, 219, 219);
+    text-align : center;
+    font-size: large;
+}
+
+.card{
+    background : none;
+}
+
+.loadImg{
+    border-radius: 100rem;
+    width: 7rem;
+}
+
+.loading-container{
+    display: none;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.grant-location-container{
+    display : none;
+    margin-top: 4rem;
+    border-style: solid ;
+    border-color: rgb(4, 3, 3);
+    border-radius:5rem;
+    margin-left : 40rem;
+    margin-right: 40rem;
+    background-color: rgb(223, 238, 239);
+}
+
+
+.form-container{
+    display:none;
+    margin-top: 5rem ;
+}
+
+
+
+/* search form code  */
+
+.form{
+    position: relative;
+}
+
+.form .fa-search{
+
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+
+}
+
+.form span{
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    scale:1.3;
+}
+
+.left-pan{
+    padding-left: 7px;
+}
+
+.left-pan i{
+   padding-left: 10px;
+}
+
+.form-input{
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.form-input:focus{
+    box-shadow: none;
+    border:none;
+}
+
+.input-mic{
+    cursor:pointer;
+}
+
+.go-button{
+    cursor:pointer;
+    scale:0.6;
+}
+
+/* search form end */
+
+
+
+
+/* user-info container */
+
+.user-info-container{
+    /* display: none; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    border-radius:1rem;
+    margin-left:10rem;
+    margin-right:10rem;
+    /* background-color: rgb(223, 238, 239); */
+
+    grid-template-areas: 
+        "usrInfo windSpd humidity"
+        "usrInfo pressure visibility"
+        "usrInfo sunrise sunset";
+    ;
+}
+
+.currentWeather{
+    grid-area: usrInfo;
+    
+}
+
+.windSpeed{
+    grid-area: windSpd;
+    
+}
+
+.humidity{
+    grid-area: humidity;
+}
+
+.pressure{
+    grid-area: pressure;
+}
+
+.visibility{
+    grid-area: visibility;
+}
+
+.sunrise{
+    grid-area: sunrise;
+}
+
+.sunset{
+    grid-area: sunset;
+}
+
+.icon{
+    width: 6rem;
+    float:left;
+    margin-top: 2.5rem;
+}
+
+.box{
+    background-color: #F8FAFC;
+    border-radius: 1rem;
+    margin:0.5rem;
+    height: 10rem;
+}
+
+.boxA{
+    background-color: #F8FAFC;
+    border-radius: 1rem;
+    margin:0.5rem;
+    
+}
+
+.boxFont{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #6e757e;
+    margin-left: 12.5rem;
+    margin-top: 1rem;
+}
