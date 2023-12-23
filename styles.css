@@ -161,8 +161,8 @@ body{
 }
 
 .icon{
-    width: 6rem;
-    float:left;
+    width: 5rem;
+    float: left;
     margin-top: 2.5rem;
 }
 
@@ -170,7 +170,8 @@ body{
     background-color: #F8FAFC;
     border-radius: 1rem;
     margin:0.5rem;
-    height: 10rem;
+    /* height: 8rem; */
+    /* text-align: center; */
 }
 
 .boxA{
@@ -181,9 +182,11 @@ body{
 }
 
 .boxFont{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #6e757e;
-    margin-left: 12.5rem;
     margin-top: 1rem;
+    text-align: center;
+    padding-right: 5rem;  /*perfectionnnnnnnn*/
+    margin-left: 6rem;
 }
