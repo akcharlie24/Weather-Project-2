@@ -37,15 +37,23 @@ body{
     margin-top: 5rem;
 }
 
+.loading-container.active{
+    display : inherit;
+}
+
 .grant-location-container{
     display : none;
     margin-top: 4rem;
     border-style: solid ;
     border-color: rgb(4, 3, 3);
     border-radius:5rem;
-    margin-left : 40rem;
-    margin-right: 40rem;
+    margin-left : 20rem;
+    margin-right:20rem;
     background-color: rgb(223, 238, 239);
+}
+
+.grant-location-container.active{
+    display: inherit ;
 }
 
 
@@ -54,7 +62,9 @@ body{
     margin-top: 5rem ;
 }
 
-
+.form-container.active{
+    display: inherit;
+}
 
 /* search form code  */
 
@@ -114,8 +124,7 @@ body{
 /* user-info container */
 
 .user-info-container{
-    /* display: none; */
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
     border-radius:1rem;
@@ -128,6 +137,10 @@ body{
         "usrInfo pressure visibility"
         "usrInfo sunrise sunset";
     ;
+}
+
+.user-info-container.active{
+    display : grid;
 }
 
 .currentWeather{
