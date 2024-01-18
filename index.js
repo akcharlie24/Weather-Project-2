@@ -8,6 +8,14 @@ const userInfoContainer = document.querySelector(".user-info-container");
 const loadingContainer = document.querySelector(".loading-container");
 const formContainer = document.querySelector(".form-container");
 
+let getTime = (time) => {
+  let date = new Date(time * 1000);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let formattedTime = hours + ":" + minutes;
+  return formattedTime;
+};
+
 const API_KEY = "d1845658f92b31c64bd94f06f7188c9c";
 
 let currentTab = userTab;
@@ -80,11 +88,33 @@ async function renderWeatherInfo(weatherInfo) {
   const visibility = document.querySelector("[data-visibility]");
   const sunrise = document.querySelector("[data-sunrise]");
   const sunset = document.querySelector("[data-sunset]");
+  const weatherIcon = document.querySelector("[data-weatherIcon]");
+  const temprature = document.querySelector("[data-currentTemp]");
+  const weatherDesc = document.querySelector("[data-weatherDesc");
+  let today = new Date();
+  currentDate = document.querySelector("[data-currentDate]");
+  const countryIcon = document.querySelector("[data-countryIcon]");
+  const cityName = document.querySelector("[data-cityName]");
 
-  console.log(weatherInfo)
+  console.log(weatherInfo);
 
+  countryIcon.src = countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
+  cityName.innerText = `${weatherInfo?.name}`;
+  currentDate.innerText = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
+  temprature.innerText = `${weatherInfo?.main?.temp} °C`;
+  weatherDesc.innerText =
+    `${weatherInfo?.weather?.[0]?.description}`.toUpperCase();
+  weatherIcon.src = `img/animated/${weatherInfo?.weather?.[0]?.icon}.svg`;
   windSpeed.innerText = `${weatherInfo?.wind?.speed} m/s`;
-  humidity.innerHTML = `${weatherInfo}`;
+  humidity.innerText = `${weatherInfo?.main?.humidity} %`;
+  let visible = `${weatherInfo?.visibility}` / 1000;
+  if (visible == 10) visibility.innerText = "Max Visibility";
+  else visibility.innerText = ` ${visible} KM`;
+  let sunriseVal = weatherInfo?.sys?.sunrise;
+  let sunsetVal = weatherInfo?.sys?.sunset;
+  sunrise.innerText = `${getTime(sunriseVal)}`;
+  sunset.innerText = `${getTime(sunsetVal)}`;
+  pressure.innerText = `${weatherInfo?.main.pressure / 1000} bar`;
 }
 
 function getLocation() {
