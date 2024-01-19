@@ -82,6 +82,12 @@ async function fetchUserWeatherInfo(coordinates) {
 }
 
 async function renderWeatherInfo(weatherInfo) {
+  if (weatherInfo.cod == 404) {
+    userInfoContainer.classList.remove("active");
+    loadingContainer.classList.remove("active");
+    alert("Please Enter The Correct City Name");
+  }
+
   const windSpeed = document.querySelector("[data-windSpeed]");
   const humidity = document.querySelector("[data-humidity]");
   const pressure = document.querySelector("[data-pressure]");
@@ -92,15 +98,15 @@ async function renderWeatherInfo(weatherInfo) {
   const temprature = document.querySelector("[data-currentTemp]");
   const weatherDesc = document.querySelector("[data-weatherDesc");
   let today = new Date();
+  let dateString = today.toDateString();
   currentDate = document.querySelector("[data-currentDate]");
   const countryIcon = document.querySelector("[data-countryIcon]");
   const cityName = document.querySelector("[data-cityName]");
 
   console.log(weatherInfo);
-
-  countryIcon.src = countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
+  countryIcon.src = `https://flagcdn.com/60x45/${weatherInfo?.sys?.country.toLowerCase()}.png`;
   cityName.innerText = `${weatherInfo?.name}`;
-  currentDate.innerText = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`;
+  currentDate.innerText = dateString;
   temprature.innerText = `${weatherInfo?.main?.temp} °C`;
   weatherDesc.innerText =
     `${weatherInfo?.weather?.[0]?.description}`.toUpperCase();
@@ -162,6 +168,51 @@ async function fetchSearchWeatherInfo(city) {
     userInfoContainer.classList.add("active");
     renderWeatherInfo(data);
   } catch (err) {
-    //hW
+    loadingContainer.classList.remove("active");
+    console.error("unable to fetch data , API call failed ");
+    alert("api call failed to fetch data");
+  }
+}
+
+//webspeech addition
+let inputMic = document.querySelector(".inputMic");
+let formDisplay = document.querySelector(".form-input")
+
+inputMic.addEventListener('click', webspeechRecog);
+function webspeechRecog() {
+  if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
+    const recognition = new (window.SpeechRecognition ||
+      window.webkitSpeechRecognition)();
+
+    recognition.lang = "en-US";
+    recognition.start();
+    
+    recognition.onresult = function (event) {
+      const transcript = event.results[0][0].transcript;
+      let wordsArray = transcript.split(" ");
+
+      let inputArr = [wordsArray[0],wordsArray[1]];
+      let inputCity = inputArr.join(' ');
+      fetchSearchWeatherInfo(inputCity);
+      searchInput.value = inputCity;
+    };
+    
+
+    recognition.onerror = function (event) {
+      console.error("Speech recognition error:", event.error);
+      console.error("error message", event.message);
+      console.error("Event: ", event);
+    };
+
+    inputMic.addEventListener('click',async function (event){
+      event.preventDefault;
+      await recognition.start();
+    })
+
+
+  } else {
+    // Display a message if speech recognition is not supported
+    startSpeechButton.disabled = true;
+    startSpeechButton.textContent = "Speech Recognition Not Supported";
   }
 }

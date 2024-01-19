@@ -47,7 +47,7 @@
           </div>
         </div>
 
-        <div class=".sub-container loading-container">
+        <div class="sub-container loading-container">
           <img class = "loadImg" src="https://i.gifer.com/Ocko.gif" alt="Loading">
         </div>
 
@@ -64,11 +64,13 @@
                 <span class="left-pan mx-3">
                   
                   <button type="submit" class="go-button btn btn-dark" data-searchButton>Search</button>
-                  
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="input-mic bi bi-mic" data-micButton viewBox="0 0 16 16">
+                  <button type="button" class = "inputMic">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="input-mic bi bi-mic" data-micButton viewBox="0 0 16 16">
                     <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
                     <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
                   </svg>
+                  </button>
+                  
                 </span>
               </div>
               
@@ -80,48 +82,50 @@
         
         <div class="sub-container user-info-container">
             <div class="currentWeather boxA">
-              <img data-weatherIcon>
-              <p data-currentTemp></p>
-              <p data-weatherDesc></p>
-              <img class = "icon" src="" alt="">
-              <p data-currentDate></p>
-              <img data-countryIcon> <p data-cityName></p>
+              <img class = "weatherIcon" data-weatherIcon>
+              <h1 data-currentTemp></h1>
+              <h4 data-weatherDesc></h4>
+              <h5 data-currentDate></h5>
+              <div class="countryContainer">
+              <img data-countryIcon> 
+              <h4 data-cityName></h4>
+              </div>
             </div>
             
             <div class="windSpeed box">
               <img class = "icon" src="imgs/wind-speed.svg" alt="">
               <h5 class = "boxFont">Wind Speed</h5>
-              <p data-windSpeed></p>
+              <h4 data-windSpeed></h5>
             </div>
 
             <div class="humidity box">
               <img class = "icon" src="imgs/humidity.svg" alt="">
               <h5 class = "boxFont">Humidity</h5>
-              <p data-humidity></p>
+              <h4 data-humidity></h4>
             </div>
 
             <div class="pressure box">
               <img class = "icon" src="imgs/pressure.svg" alt="">
               <h5 class = "boxFont">Pressure</h5>
-              <p data-pressure></p>
+              <h4 data-pressure></h4>
             </div>
 
             <div class="visibility box">
               <img class = "icon" src="imgs/visibility.svg" alt="">
               <h5 class = "boxFont">Visibility</h5>
-              <p data-visibility></p>
+              <h4 data-visibility></h4>
             </div>
 
             <div class="sunrise box">
               <img class = "icon" src="imgs/sunrise.svg" alt="">
-              <h5 class = "boxFont">Sunrise</h5>
-              <p data-sunrise></p>
+              <h5 class = "boxFont">Sunrise (IST)</h5>
+              <h4 data-sunrise></h4>
             </div>
 
             <div class="sunset box">
               <img class = "icon" src="imgs/sunset.svg" alt="">
-              <h5 class = "boxFont">Sunset</h5>
-              <p data-sunset></p>
+              <h5 class = "boxFont">Sunset (IST)</h5>
+              <h4 data-sunset></h4>
             </div>
       
       </div>
