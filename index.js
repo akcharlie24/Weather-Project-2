@@ -193,7 +193,7 @@ function webspeechRecog() {
 
       let inputArr = [wordsArray[0],wordsArray[1]];
       let inputCity = inputArr.join(' ');
-      fetchSearchWeatherInfo(inputCity);
+      fetchSearchWeatherInfo(inputCity.substring(0,inputCity.length - 1));
       searchInput.value = inputCity;
     };
     
